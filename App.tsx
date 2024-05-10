@@ -1,20 +1,19 @@
 
 import React from 'react';
-import {
-  useColorScheme
-} from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
+import { ThemeProvider } from '@rneui/themed';
+import { AppTheme } from './src/common/theme';
 import AppNavigation from './src/presentation/AppNavigation';
 
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
 
   return (
     <NavigationContainer>
-      <AppNavigation />
+      <ThemeProvider theme={AppTheme}>
+        <AppNavigation />
+      </ThemeProvider>
     </NavigationContainer>
   );
 }

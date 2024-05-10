@@ -1,13 +1,12 @@
+import { Text } from "@rneui/themed";
 import React from "react";
-import { Text, View } from "react-native";
+import ContainerView from "../../common/ContainerView";
 
 
 const HomeScreen: React.FC = () => {
-  return <View>
-    <Text style={{
-      color: "black"
-    }}>This is HomeScreen</Text>
-  </View>
+  return <ContainerView>
+    <Text>This is HomeScreen</Text>
+  </ContainerView>
 }
 
 export default HomeScreen
