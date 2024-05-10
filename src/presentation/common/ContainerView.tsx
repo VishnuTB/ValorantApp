@@ -1,6 +1,8 @@
 import { useTheme } from "@rneui/themed";
 import React from "react";
-import { StyleProp, View, ViewStyle } from "react-native";
+import { ActivityIndicator, StyleProp, View, ViewStyle } from "react-native";
+import colours from "../../common/colours";
+import { cardStyles, viewStyles } from "../../common/styles";
 
 
 interface ContainerViewProps {
@@ -19,6 +21,28 @@ const ContainerView: React.FC<ContainerViewProps> = (props) => {
     backgroundColor: theme.mode === 'dark' ? 'black' : "white"
   }}>
     {props.children}
+    {props.showLoading && <View
+      style={{
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        backgroundColor:
+          theme.mode === 'dark' ? colours.blackAlpha : colours.whiteAlpha,
+        ...viewStyles.center,
+      }}>
+      <View
+        style={{
+          backgroundColor: theme.colors.background,
+          padding: 10,
+          borderRadius: 100,
+          ...cardStyles.large,
+        }}>
+        <ActivityIndicator
+          animating
+          size={'large'}
+        />
+      </View>
+    </View>}
   </View>
 }
 
