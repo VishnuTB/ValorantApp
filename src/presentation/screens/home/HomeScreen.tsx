@@ -4,7 +4,9 @@ import { Text, View } from "react-native";
 
 const HomeScreen: React.FC = () => {
   return <View>
-    <Text>This is HomeScreen</Text>
+    <Text style={{
+      color: "black"
+    }}>This is HomeScreen</Text>
   </View>
 }
 
