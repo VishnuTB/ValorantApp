@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   SafeAreaView,
@@ -9,7 +10,7 @@ import {
 import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
-import HomePage from './src/presentation/screens/home/HomePage';
+import HomeScreen from './src/presentation/screens/home/HomeScreen';
 
 
 function App(): React.JSX.Element {
@@ -26,7 +27,7 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <View>
-        <HomePage />
+        <HomeScreen />
       </View>
 
     </SafeAreaView>

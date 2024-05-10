@@ -2,10 +2,10 @@ import React from "react";
 import { Text, View } from "react-native";
 
 
-const HomePage: React.FC = () => {
+const HomeScreen: React.FC = () => {
   return <View>
-    <Text>This is HomePage</Text>
+    <Text>This is HomeScreen</Text>
   </View>
 }
 
-export default HomePage
+export default HomeScreen
