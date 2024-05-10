@@ -16,6 +16,7 @@ const AgentItem: React.FC<AgentItemProps> = ({ agent, onPress }) => {
   const { theme } = useTheme()
   return (
     <TouchableOpacity activeOpacity={activeOpacityDefault}
+      onPress={onPress}
       style={{
         margin: 10,
       }}>
