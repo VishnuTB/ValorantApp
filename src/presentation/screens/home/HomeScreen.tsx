@@ -29,6 +29,7 @@ const HomeScreen: React.FC<AppNavigationScreenProps<'homeScreen'>> = ({
 
   return <ContainerView showLoading={isLoading}>
     <FlatList keyExtractor={getKeyExtractor}
+      numColumns={2}
       data={data?.data}
       renderItem={renderAgents} />
   </ContainerView>

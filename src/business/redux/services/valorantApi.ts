@@ -11,7 +11,7 @@ export const valorantApi = createApi({
       query: () => `agents`,
     }),
     getAgentDetails: builder.query<any, string>({
-      query: (agentUuid) => `agents/${agentUuid}`,
+      query: (agentUuid: string) => `agents/${agentUuid}`,
     }),
   }),
 })

@@ -1,10 +1,10 @@
-import { Image, ScreenWidth } from "@rneui/base";
+import { Image, ScreenHeight, ScreenWidth } from "@rneui/base";
 import { Text, useTheme } from "@rneui/themed";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { Datum } from "../../../../business/redux/services/AgentListResponse";
-import { cardStyles, viewStyles } from "../../../../common/styles";
+import { cardStyles, spacing, viewStyles } from "../../../../common/styles";
 import { activeOpacityDefault } from "../../../common/constants";
 
 interface AgentItemProps {
@@ -18,7 +18,9 @@ const AgentItem: React.FC<AgentItemProps> = ({ agent, onPress }) => {
     <TouchableOpacity activeOpacity={activeOpacityDefault}
       onPress={onPress}
       style={{
-        margin: 10,
+        width: ScreenWidth / 2,
+        minHeight: ScreenHeight / 3,
+        padding: ScreenWidth / 25
       }}>
       <LinearGradient colors={
         [
@@ -30,14 +32,13 @@ const AgentItem: React.FC<AgentItemProps> = ({ agent, onPress }) => {
           ...cardStyles.large,
           borderRadius: 10,
           flex: 1,
-          ...viewStyles.row,
         }}>
         <View>
           <Image style={{
             height: ScreenWidth / 4,
-            width: ScreenWidth / 4,
+            width: ScreenWidth / 3,
             borderRadius: ScreenWidth / 2,
-            borderWidth: 2,
+            borderWidth: 1,
             borderColor: agent.backgroundGradientColors[1],
           }} source={{ uri: agent.displayIcon }} />
         </View>
@@ -46,6 +47,20 @@ const AgentItem: React.FC<AgentItemProps> = ({ agent, onPress }) => {
           padding: 10
         }}>
           <Text h4>{agent.displayName}</Text>
+          <Text numberOfLines={3} ellipsizeMode="tail">{agent.description}</Text>
+          <View style={{
+            marginTop: spacing.medium,
+            ...viewStyles.rowCenter
+          }}>
+            <Image source={{ uri: agent.role?.displayIcon }} style={{
+              height: 15,
+              width: 15,
+              borderRadius: 10,
+              borderWidth: 1,
+              marginEnd: spacing.medium
+            }} />
+            <Text>{agent.role?.displayName}</Text>
+          </View>
         </View>
       </LinearGradient>
     </TouchableOpacity>
